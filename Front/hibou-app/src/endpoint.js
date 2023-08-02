@@ -13,13 +13,13 @@ function endpoint(props) {
             className="App-link"
             href="http://localhost:3000/sale"
           >
-            Sale
+            Vente Client
           </a>
           <a
             className="App-link"
             href="http://localhost:3000/name"
           >
-            Name
+            Nom Client
           </a>
         </header>
       </div>
