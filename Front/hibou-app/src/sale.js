@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState, React } from 'react';
 
-function sale(props) {
+function Sale(props) {
 
     const [dataId, setDataId] = useState({ id: '' });
 
@@ -43,4 +43,4 @@ function sale(props) {
         </div>
     );
 };
-export default sale;
+export default Sale;

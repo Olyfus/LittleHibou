@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState, React } from 'react';
 
-function name(props) {
+function Name(props) {
 
     const [dataName, setDataName] = useState({ name: '' });
 
@@ -43,4 +43,4 @@ function name(props) {
         </div>
     );
 };
-export default name;
+export default Name;
