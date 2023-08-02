@@ -23,7 +23,19 @@ async def root():
 # Challenge 2
 @app.get("/list/client/{name}")
 async def getClientListByLastname(name : str):
-    print(str(api_url)+"customers/search/?last_name="+name)
     resp = requests.get(str(api_url)+"customers/search/?last_name="+name, auth=credential)
-    print(resp.status_code)
-    return {resp.content}
+    # print(str(api_url)+"customers/search/?last_name="+name)
+    # print(resp.status_code)
+    data = resp.content.decode()
+    print(data)
+    
+    return{data}
+
+# Challenge 3
+@app.get("/client/{id}/sales")
+async def getClientSellList(id : int):
+    resp = requests.get(str(api_url)+"customer/"+str(id)+"/sales/", auth=credential)
+    # print(str(api_url)+"customers/search/?last_name="+name)
+    data = resp.content.decode()
+    print(data)
+    return {data}
