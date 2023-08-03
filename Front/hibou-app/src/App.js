@@ -5,7 +5,6 @@ import logo from './logo.svg';
 import Endpoint from './endpoint';
 import Name from './name';
 import Sale from './sale';
-import WebFont from 'webfontloader';
 import './App.css';
 
 function isTokenExpired(token) {
@@ -38,13 +37,6 @@ function ProtectedRoute( { children } ){
 }
 
 function App() {
-  useEffect(() => {
-    WebFont.load({
-      google: {
-        families: ['Noto Sans Hanunoo']
-      }
-    })
-  })
   return (
   <BrowserRouter>
     <Routes>
