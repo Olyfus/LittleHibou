@@ -1,15 +1,18 @@
 import axios from "axios";
 import { useEffect, useState, React } from 'react';
+import SaleCard from "./Cards/saleCard";
 
 function Sale(props) {
 
     const [dataId, setDataId] = useState({ id: '' });
+    const [sale, setSale] = useState([])
 
     const onSubmitId = (event) => {
         event.preventDefault();
         axios.get(`https://localhost:8000/client/${props.id}/sales`)
             .then((res) => {
                 if (res.data.token) {
+                    setSale(res.data);
                 };
             })
             .catch(() => {
@@ -21,7 +24,7 @@ function Sale(props) {
     const handleChangeId = (event) => {
         setDataId({
             ...dataId,
-            [event.target.name]: event.target.value
+            [event.target.id]: event.target.value
         });
     };
 
@@ -39,6 +42,9 @@ function Sale(props) {
                         Submit
                     </button>
                 </form>
+                {sale.map((item, index) => (
+                    <SaleCard key={index} sale={item}/>
+                ))}
             </header>
         </div>
     );

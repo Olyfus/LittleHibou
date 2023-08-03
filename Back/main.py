@@ -21,9 +21,9 @@ async def root():
     return {"message": "hello, world"}
 
 # Challenge 2
-@app.get("/list/client/{name}")
-async def getClientListByLastname(name : str):
-    resp = requests.get(str(api_url)+"customers/search/?last_name="+name, auth=credential)
+@app.get("/list/client")
+async def getClientListByLastname(name : str, method : str):
+    resp = requests.get(str(api_url)+"customers/search/?"+method+"="+name, auth=credential)
     # print(str(api_url)+"customers/search/?last_name="+name)
     # print(resp.status_code)
     data = resp.content.decode()

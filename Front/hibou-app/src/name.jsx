@@ -7,9 +7,11 @@ function Name(props) {
 
     const onSubmitName = (event) => {
         event.preventDefault();
+        console.log(`https://localhost:8000/list/client/${dataName.name}`)
         axios.get(`https://localhost:8000/list/client/${props.name}`)
             .then((res) => {
                 if (res.data.token) {
+                    console.log(res.data)
                 };
             })
             .catch(() => {
@@ -19,6 +21,7 @@ function Name(props) {
     }
 
     const handleChangeName = (event) => {
+        console.log(event.target.value)
         setDataName({
             ...dataName,
             [event.target.name]: event.target.value
